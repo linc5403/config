@@ -87,8 +87,13 @@ Plugin 'dyng/ctrlsf.vim'
 
 """""""""""""tagbar
 Plugin 'majutsushi/tagbar'
-""""for golang
+
+"""""""""""""""""""""""for golang
 Plugin 'fatih/vim-go'
+
+"""""""""""""for git
+"Plugin 'airblade/vim-gitgutter'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -366,6 +371,8 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 """"""""""""""""""airline
+let g:airline_section_x = airline#section#create_right(['gutentags', 'grepper'])
+
 let g:airline_powerline_fonts = 1
 " 是否启用顶部tabline
 let g:airline#extensions#tabline#enabled = 1
