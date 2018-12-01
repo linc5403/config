@@ -1,3 +1,12 @@
-Host *
-ServerAliveInterval 10
-ServerAliveCountMax 5
+# default
+Host github.com
+ HostName github.com
+ User git
+ IdentityFile ~/.ssh/id_rsa
+
+# two
+ Host linchuan.github.com
+ HostName github.com
+ User git
+ IdentityFile ~/.ssh/id_rsa_linchuan_test
+
