@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
@@ -32,13 +33,14 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-alias start_mysql_tunnel="ssh -NCPf hunch@40.73.39.124 -L 3388:127.0.0.1:3306"
+# alias start_mysql_tunnel="ssh -NCPf hunch@40.73.39.124 -L 3388:127.0.0.1:3306"
+alias start_mysql_tunnel="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
 alias mysql_local_test="mysql -u root -p -h localhost -D test_db"
-alias mysql_dev="mysql -u dev-user -h 139.219.1.196 -phunch_dev_db -D aivideo"
-alias mysql_local_dev="mysql -u root -pasdf1234 -h localhost"
+alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
+alias mysql_local_dev="mysql -u root -pasdf1234 -h localhost -D aivideo"
 alias mysql_online="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
-#alias mysql_db_server="mysql -u hunch -pasdf1234 -h 40.73.39.124"
-alias mysql_db_server="mysql -u hunch -pasdf1234 -h 127.0.0.1 -P 3388"
+# alias mysql_db_server="mysql -u hunch -pasdf1234 -h 40.73.39.124"
+# alias mysql_db_server="mysql -u hunch -pasdf1234 -h 127.0.0.1 -P 3388"
 alias ssh_build="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@40.125.172.62"
 alias ssh_transit="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@121.196.213.142"
 alias ssh_extractor="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@extractor.zenvideo.cn"
@@ -97,8 +99,12 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerline"
 # ZSH_THEME="ys"
-# ZSH_THEME="agnoster"
 # ZSH_THEME="random"
+ZSH_THEME="agnoster" ## last use this 
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="spaceship"
+
+
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -149,11 +155,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git,
-  vi-mode,
-  python
-)
+plugins=(git vi-mode, z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -194,3 +196,25 @@ PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[bl
 export PATH=$PATH:$(go env GOPATH)/bin
 
 defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
+
+# Updates editor information when the keymap changes.
+#function zle-keymap-select() {
+#  zle reset-prompt
+#  zle -R
+#}
+#
+#zle -N zle-keymap-select
+#
+#function vi_mode_prompt_info() {
+#  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
+#}
+#
+## define right prompt, regardless of whether the theme defined it
+#RPS1='$(vi_mode_prompt_info)'
+#RPS2=$RPS1
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
+# 加上 "vi_mode"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs vi_mode)

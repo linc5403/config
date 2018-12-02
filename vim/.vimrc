@@ -1,16 +1,8 @@
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
 set nocompatible
 """"""""""""""Vundle Begin"""""""""""""""""""""""""""""
 filetype off
-
-"python with virtualenv support
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"      execfile(activate_this, dict(__file__=activate_this))
-"      EOF
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -71,8 +63,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/rainbow_parentheses.vim'
 
 """"for LaTeX
-"Plugin 'vim-latex/vim-latex'
-"Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'vim-latex/vim-latex'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -147,10 +139,10 @@ set incsearch 				" 搜索时自动跟进
 
 """"""分割窗口跳转的快捷键设置
 " 组合快捷键：
-nnoremap <C-J> <C-W><C-J>    " 组合快捷键：- Ctrl-j 切换到下方的分割窗口
-nnoremap <C-K> <C-W><C-K>    " 组合快捷键：- Ctrl-k 切换到上方的分割窗口
-nnoremap <C-L> <C-W><C-L>    " 组合快捷键：- Ctrl-l 切换到右侧的分割窗口
-nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
+"nnoremap <C-J> <C-W><C-J>    " 组合快捷键：- Ctrl-j 切换到下方的分割窗口
+"nnoremap <C-K> <C-W><C-K>    " 组合快捷键：- Ctrl-k 切换到上方的分割窗口
+"nnoremap <C-L> <C-W><C-L>    " 组合快捷键：- Ctrl-l 切换到右侧的分割窗口
+"nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
 """"""分割窗口跳转的快捷键设置
 
 """""""""""""""代码折叠""""""
@@ -228,7 +220,7 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 let g:ycm_key_list_stop_completion = ['<CR>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR> " 跳转到定义处
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR> " 跳转到引用处
 " let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
@@ -254,16 +246,6 @@ let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_
 " Use pylint to check python files.
 let g:syntastic_python_checkers = ['pylint']
 " map <F4> :SyntasticToggleMode<CR> :SyntasticCheck<CR>
-
-
-"""""""YCM FOR PYTHON VIRTUAL ENVIROMENT
-let g:ycm_python_interpreter_path = ''
-let g:ycm_python_sys_path = []
-let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quickly Run
@@ -372,7 +354,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 map <F4> :TagbarToggle<CR>
 
 """"for LaTeX
-"filetype plugin on
+filetype plugin on
 "set grepprg=grep\ -nH\ $*
 "filetype indent on
 "let g:tex_flavor='latex'
@@ -384,7 +366,13 @@ let g:Tex_GotoError = 0
 let g:Tex_ShowErrorContext = 0
 "-----------------latex live preview-------------------------
 "autocmd filetype tex setl updatetime=1000
-"autocmd Filetype tex setl updatetime=1
+autocmd Filetype tex setl updatetime=1
 "let g:livepreview_previewer = 'open -a Skim'
 "let g:livepreview_previewer = 'open -a Preview'
-"let g:livepreview_previewer = 'open -a texshop'
+let g:livepreview_previewer = 'open -a texshop'
+
+""""for quickfix
+nmap <leader>j :cnext<CR>    
+nmap <leader>k :cprevious<CR>    
+nmap <leader>o :copen<CR>    
+
