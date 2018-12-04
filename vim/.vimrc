@@ -25,6 +25,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+
+"""""""""""""for git
+"Plugin 'airblade/vim-gitgutter'
+
 """" 文件跳转
 Plugin 'kien/ctrlp.vim'
 """" 文件内搜索
@@ -91,8 +95,6 @@ Plugin 'majutsushi/tagbar'
 """""""""""""""""""""""for golang
 Plugin 'fatih/vim-go'
 
-"""""""""""""for git
-"Plugin 'airblade/vim-gitgutter'
 
 
 " All of your Plugins must be added before the following line
