@@ -98,10 +98,10 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerline"
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
 # ZSH_THEME="random"
 # ZSH_THEME="agnoster" ## last use this 
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="spaceship"
 
 
@@ -155,7 +155,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode z)
+plugins=(git vi-mode z pyenv docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -191,30 +191,34 @@ export LC_ALL=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+# PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
 export PATH=$PATH:$(go env GOPATH)/bin
 
 defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
 
 # Updates editor information when the keymap changes.
-function zle-keymap-select() {
-  zle reset-prompt
-  zle -R
-}
-
-zle -N zle-keymap-select
-
-function vi_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
-}
-
-# define right prompt, regardless of whether the theme defined it
-RPS1='$(vi_mode_prompt_info)'
-RPS2=$RPS1
+#function zle-keymap-select() {
+#  zle reset-prompt
+#  zle -R
+#}
+#
+#zle -N zle-keymap-select
+#
+#function vi_mode_prompt_info() {
+#  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
+#}
+#
+## define right prompt, regardless of whether the theme defined it
+#RPS1='$(vi_mode_prompt_info)'
+#RPS2=$RPS1
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
 # 加上 "vi_mode"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
+
+# docker-compose 自动补全
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i

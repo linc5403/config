@@ -4,6 +4,16 @@ set nocompatible
 """"""""""""""Vundle Begin"""""""""""""""""""""""""""""
 filetype off
 
+"python with virtualenv support
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"      execfile(activate_this, dict(__file__=activate_this))
+"      EOF
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -24,11 +34,14 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'davidhalter/jedi-vim'
-"Plugin 'python-mode/python-mode'
+"Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 "Plugin 'klen/python-mode'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mindriot101/vim-yapf'
+Plugin 'vim-python/python-syntax'
 """" end
 
-"""" 缩进指示线，不晓得是什么
+"""" 缩进指示线
 Plugin 'Yggdroot/indentLine'
 
 """" 代码折叠
@@ -62,17 +75,25 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/rainbow_parentheses.vim'
 
+""""书签
+Plugin 'MattesGroeger/vim-bookmarks'
+
 """"for LaTeX
-Plugin 'vim-latex/vim-latex'
-Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'vim-latex/vim-latex'
+"Plugin 'xuhdev/vim-latex-live-preview'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
 
 """""""""""""tagbar
 Plugin 'majutsushi/tagbar'
-""""for golang
+
+"""""""""""""""""""""""for golang
 Plugin 'fatih/vim-go'
+
+"""""""""""""for git
+"Plugin 'airblade/vim-gitgutter'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,26 +144,32 @@ let NERDTreeAutoCenter=1
 
 " 在终端启动vim时，共享NERDTree
 "let g:nerdtree_tabs_open_on_console_startup=1
+"""""nerdtree end  """"
 
 """" 语法高亮
-let python_highlight_all=1
+let g:python_highlight_all = 1
+let g:python_version_2 = 1
 syntax on
-"""""nerdtree end  """"
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=4		
+set softtabstop=4	
+set shiftwidth=4	
+set expandtab		
+
 set showmatch
 set mouse=a
-"set hlsearch 				"高亮不好用
+set hlsearch 
+""高亮配色
+highlight Search ctermfg=6 ctermbg=0 guifg=Black guibg=Grey
 set incsearch 				" 搜索时自动跟进
 
 
 """"""分割窗口跳转的快捷键设置
 " 组合快捷键：
-"nnoremap <C-J> <C-W><C-J>    " 组合快捷键：- Ctrl-j 切换到下方的分割窗口
-"nnoremap <C-K> <C-W><C-K>    " 组合快捷键：- Ctrl-k 切换到上方的分割窗口
-"nnoremap <C-L> <C-W><C-L>    " 组合快捷键：- Ctrl-l 切换到右侧的分割窗口
-"nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
+nnoremap <C-J> <C-W><C-J>    " 组合快捷键：- Ctrl-j 切换到下方的分割窗口
+nnoremap <C-K> <C-W><C-K>    " 组合快捷键：- Ctrl-k 切换到上方的分割窗口
+nnoremap <C-L> <C-W><C-L>    " 组合快捷键：- Ctrl-l 切换到右侧的分割窗口
+nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
 """"""分割窗口跳转的快捷键设置
 
 """""""""""""""代码折叠""""""
@@ -186,9 +213,11 @@ au BufNewFile,BufRead *.py
 " 补全菜单的开启与关闭
 set completeopt=longest,menu                    " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 let g:ycm_min_num_of_chars_for_completion=2             " 从第2个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_cache_omnifunc=1                      " 禁止缓存匹配项,每次都重新生成匹配项
+"let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动补全窗口
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
 
 " 补全菜单中各项之间进行切换和选取：默认使用tab  s-tab进行上下切换，使用空格选取。可进行自定义设置：
 "let g:ycm_key_list_select_completion=['<c-n>']
@@ -221,52 +250,63 @@ let g:ycm_key_list_stop_completion = ['<CR>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
 nnoremap <leader>jr :YcmCompleter GoToReferences<CR> " 跳转到引用处
-" let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
+""""""""YCM FOR PYTHON VIRTUAL ENVIROMENT
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
 let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
-
+ let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 """"""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""YCM END"""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Plugin syntastic settings.
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': []}
+let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['python'], 'passive_filetypes': []}
 " Use pylint to check python files.
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['flake8']
+" 设置错误符号
+let g:syntastic_error_symbol='✗'
+" " 设置警告符号
+let g:syntastic_warning_symbol='⚠'
 " map <F4> :SyntasticToggleMode<CR> :SyntasticCheck<CR>
+" 设置颜色
+highlight SpellBad cterm=underline ctermbg=128 ctermfg=007
+highlight SpellCap cterm=underline ctermbg=128 ctermfg=007
+
+"highlight SyntasticErrorSign cterm=underline ctermbg=grey ctermfg=darkblue
+"highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+"highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quickly Run
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-map <F5> :call CompileRunGcc()<CR>
-
-func! CompileRunGcc()
-    exec "w"
-    if &filetype == 'c'
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'cpp'
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'python'
-        exec '!time python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"map <F5> :call CompileRunGcc()<CR>
+"
+"func! CompileRunGcc()
+"    exec "w"
+"    if &filetype == 'c'
+"        exec '!g++ % -o %<'
+"        exec '!time ./%<'
+"    elseif &filetype == 'cpp'
+"        exec '!g++ % -o %<'
+"        exec '!time ./%<'
+"    elseif &filetype == 'python'
+"        exec '!time python %'
+"    elseif &filetype == 'sh'
+"        :!time bash %
+"    endif
+"endfunc
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -274,8 +314,6 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:flake8_quickfix_height=10
 
-
-let python_highlight_all=1
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 " nmap     <C-F>n <Plug>CtrlSFCwordPath
@@ -314,7 +352,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " 设置过滤不进行查找的后缀名
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
 
 """"文件内搜索
 nnoremap <Leader>fu :CtrlPFunky<Cr>
@@ -333,12 +371,33 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 """"""""""""""""""airline
+let g:airline_section_x = airline#section#create_right(['gutentags', 'grepper'])
+
 let g:airline_powerline_fonts = 1
 " 是否启用顶部tabline
 let g:airline#extensions#tabline#enabled = 1
 " 顶部tabline显示方式
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
+
+" 关掉状态栏显示virtualenv
+let g:airline#extensions#virtualenv#enabled = 0
+
+
 
 """"""""""""""""python with virtualenv support
 "py << EOF
@@ -354,7 +413,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 map <F4> :TagbarToggle<CR>
 
 """"for LaTeX
-filetype plugin on
+"filetype plugin on
 "set grepprg=grep\ -nH\ $*
 "filetype indent on
 "let g:tex_flavor='latex'
@@ -366,13 +425,68 @@ let g:Tex_GotoError = 0
 let g:Tex_ShowErrorContext = 0
 "-----------------latex live preview-------------------------
 "autocmd filetype tex setl updatetime=1000
-autocmd Filetype tex setl updatetime=1
+"autocmd Filetype tex setl updatetime=1
 "let g:livepreview_previewer = 'open -a Skim'
 "let g:livepreview_previewer = 'open -a Preview'
-let g:livepreview_previewer = 'open -a texshop'
+"let g:livepreview_previewer = 'open -a texshop'
 
 """"for quickfix
-nmap <leader>j :cnext<CR>    
-nmap <leader>k :cprevious<CR>    
-nmap <leader>o :copen<CR>    
+nmap <leader>j :cnext<CR>
+nmap <leader>k :cprevious<CR>
+nmap <leader>o :copen<CR>
+
+""""for yapf
+"autocmd BufWritePre *.py 0,$!yapf
+
+if exists('$TMUX')
+	set term=screen-256color
+endif
+
+"let g:pymode_virtualenv = 1
+
+
+""""bookmark书签
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+
+" Finds the Git super-project directory.
+function! g:BMWorkDirFileLocation()
+    let filename = 'bookmarks'
+    let location = ''
+    if isdirectory('.git')
+        " Current work dir is git's work tree
+        let location = getcwd().'/.git'
+    else
+        " Look upwards (at parents) for a directory named '.git'
+        let location = finddir('.git', '.;')
+    endif
+    if len(location) > 0
+        return location.'/'.filename
+    else
+        return getcwd().'/.'.filename
+    endif
+endfunction
+
+" Finds the Git super-project directory based on the file passed as an argument.
+function! g:BMBufferFileLocation(file)
+    let filename = 'vim-bookmarks'
+    let location = ''
+    if isdirectory(fnamemodify(a:file, ":p:h").'/.git')
+        " Current work dir is git's work tree
+        let location = fnamemodify(a:file, ":p:h").'/.git'
+    else
+        " Look upwards (at parents) for a directory named '.git'
+        let location = finddir('.git', fnamemodify(a:file, ":p:h").'/.;')
+    endif
+    if len(location) > 0
+        return simplify(location.'/.'.filename)
+    else
+        return simplify(fnamemodify(a:file, ":p:h").'/.'.filename)
+    endif
+endfunction
+
+
+
+"""" 代码上下留10行
+set so=10
 
