@@ -322,7 +322,10 @@ let g:flake8_quickfix_height=10
 " nmap <C-W> <Plug>CtrlSFCwordPath 
 " Control + N 搜索
 " nmap <C-N> <Plug>CtrlSFPrompt
-nmap <C-N> <Plug>CtrlSFCwordPath
+" nmap <C-N> <Plug>CtrlSFCwordPath
+nmap <C-N> <Plug>CtrlSFPrompt
+nmap <leader>f <Plug>CtrlSFCwordPath
+
 
 """"""disable matchpairs
 " Disable parentheses matching depends on system. This way we should address all cases (?)
