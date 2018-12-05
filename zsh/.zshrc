@@ -1,11 +1,6 @@
 export TERM="xterm-256color"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
-# Setting PATH for Python 3.6
-## The original version is saved in .bash_profile.pysave
-##PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-##export PATH
+# zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PYENV_ROOT=~/.pyenv
 
@@ -15,7 +10,6 @@ eval "$(pyenv init -)"
 #RabbitMQ Config
 export PATH=$PATH:/usr/local/sbin
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export PATH=$PATH:/Applications/GPAC.app/Contents/MacOS
 export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
