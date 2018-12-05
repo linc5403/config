@@ -16,15 +16,15 @@ export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
 # pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
+#function _pip_completion {
+#  local words cword
+#  read -Ac words
+#  read -cn cword
+#  reply=( $( COMP_WORDS="$words[*]" \
+#             COMP_CWORD=$(( cword-1 )) \
+#             PIP_AUTO_COMPLETE=1 $words[1] ) )
+#}
+#compctl -K _pip_completion pip
 # pip zsh completion end
 
 # alias start_mysql_tunnel="ssh -NCPf hunch@40.73.39.124 -L 3388:127.0.0.1:3306"
@@ -78,11 +78,8 @@ alias ssh_sql_server='ssh hunch@40.73.39.124'
 alias ssh_azure_test1='ssh hunch@40.73.33.137'
 alias ssh_hongkong='ssh -i ~/.ssh/hunch_hongkong.pem root@47.244.117.109'
 
-alias viwork="find . -name \*.py -print | xargs ~/workdir/code/software_src_code/ptags.py; vim"
-alias viweb="find . -name \*.py -print | xargs ~/workdir/code/software_src_code/ptags.py; vim"
 alias set_online_db="export MYSQL_LOCATION=rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
 alias unset_online_db="unset MYSQL_LOCATION"
-# alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 #########################################################################
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -161,29 +158,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+export EDITOR='vim'
 
 # PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
@@ -216,3 +191,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
 # docker-compose 自动补全
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+# npm permission
+export PATH=~/.npm-global/bin:$PATH
+
