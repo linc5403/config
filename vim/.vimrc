@@ -213,7 +213,7 @@ au BufNewFile,BufRead *.py
 " 补全菜单的开启与关闭
 set completeopt=longest,menu                    " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 let g:ycm_min_num_of_chars_for_completion=2             " 从第2个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=1                      " 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_cache_omnifunc=1
 "let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动补全窗口
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
@@ -492,4 +492,7 @@ endfunction
 
 """" 代码上下留10行
 set so=10
+
+"""" clipboard
+set clipboard=unnamed
 

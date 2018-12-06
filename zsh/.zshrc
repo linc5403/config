@@ -1,6 +1,7 @@
 export TERM="xterm-256color"
 # zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+export DEFAULT_USER=linchuan
 
 export PYENV_ROOT=~/.pyenv
 
@@ -14,18 +15,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export PATH=$PATH:/Applications/GPAC.app/Contents/MacOS
 export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
-
-# pip zsh completion start
-#function _pip_completion {
-#  local words cword
-#  read -Ac words
-#  read -cn cword
-#  reply=( $( COMP_WORDS="$words[*]" \
-#             COMP_CWORD=$(( cword-1 )) \
-#             PIP_AUTO_COMPLETE=1 $words[1] ) )
-#}
-#compctl -K _pip_completion pip
-# pip zsh completion end
 
 # alias start_mysql_tunnel="ssh -NCPf hunch@40.73.39.124 -L 3388:127.0.0.1:3306"
 alias start_mysql_tunnel="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
@@ -91,8 +80,8 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="powerline"
 # ZSH_THEME="ys"
 # ZSH_THEME="random"
-# ZSH_THEME="agnoster" ## last use this 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="agnoster" ## last use this 
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="spaceship"
 
 
@@ -146,7 +135,10 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode z pyenv docker)
+plugins=(vi-mode z docker)
+# plugins=(vi-mode z pyenv docker)
+# plugins=(git vi-mode z pyenv docker)
+export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 source $ZSH/oh-my-zsh.sh
 
@@ -166,27 +158,14 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
 
-# Updates editor information when the keymap changes.
-#function zle-keymap-select() {
-#  zle reset-prompt
-#  zle -R
-#}
-#
-#zle -N zle-keymap-select
-#
-#function vi_mode_prompt_info() {
-#  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
-#}
-#
-## define right prompt, regardless of whether the theme defined it
-#RPS1='$(vi_mode_prompt_info)'
-#RPS2=$RPS1
-
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
 # 加上 "vi_mode"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv dir vcs vi_mode)
+# POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes)
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
 
 # docker-compose 自动补全
 fpath=(~/.zsh/completion $fpath)
@@ -194,4 +173,8 @@ autoload -Uz compinit && compinit -i
 
 # npm permission
 export PATH=~/.npm-global/bin:$PATH
+# flake8
+export PATH=/Users/linchuan/Library/Python/2.7/bin:$PATH
+
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
