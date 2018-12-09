@@ -209,7 +209,6 @@ au BufNewFile,BufRead *.py
 
 
 """"""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
 " 补全菜单的开启与关闭
 set completeopt=longest,menu                    " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 let g:ycm_min_num_of_chars_for_completion=2             " 从第2个键入字符就开始罗列匹配项
@@ -241,7 +240,7 @@ inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
-"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>           " force recomile with syntastic
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>           " force recomile with syntastic
 "nnoremap <leader>lo :lopen<CR>    "open locationlist
 "nnoremap <leader>lc :lclose<CR>    "close locationlist
 "inoremap <leader><leader> <C-x><C-o>
@@ -260,7 +259,6 @@ let g:ycm_extra_conf_vim_data = [
 let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
  let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
-""""""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""YCM END"""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Plugin syntastic settings.
