@@ -52,7 +52,8 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+autocmd Filetype go Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
@@ -85,6 +86,9 @@ Plugin 'MattesGroeger/vim-bookmarks'
 """"for LaTeX
 "Plugin 'vim-latex/vim-latex'
 "Plugin 'xuhdev/vim-latex-live-preview'
+
+""""" for supertab
+Plugin 'ervandew/supertab'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -187,9 +191,9 @@ autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
 
 """"""""""""'indentLine
 " 支持任意ASCII码，也可以使用特殊字符：¦, ┆, or │ ，但只在utf-8编码下有效
+let g:indentLine_enabled = 1
 let g:indentLine_char='┆'
 
-let g:indentLine_enabled = 1
 "
 """"高亮缩进
 "let g:indentLine_setColors = 0
@@ -493,3 +497,11 @@ endfunction
 """" 代码上下留10行
 set so=10
 
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+    if has("unnamedplus") " X11 support
+      set clipboard+=unnamedplus
+    endif
+endif

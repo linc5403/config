@@ -127,6 +127,7 @@ alias viwork="viasset/urls.py asset/models.py asset/asset_util.py asset/asset_vi
 
 export KEYTIMEOUT=1
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv vcs dir vi_mode)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
 POWERLEVEL9K_MODE='nerdfont-complete'
