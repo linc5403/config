@@ -48,7 +48,7 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+autocmd Filetype go Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
@@ -81,6 +81,9 @@ Plugin 'MattesGroeger/vim-bookmarks'
 """"for LaTeX
 "Plugin 'vim-latex/vim-latex'
 "Plugin 'xuhdev/vim-latex-live-preview'
+
+""""" for supertab
+Plugin 'ervandew/supertab'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
