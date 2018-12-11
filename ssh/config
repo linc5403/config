@@ -10,3 +10,14 @@ Host github.com
  User git
  IdentityFile ~/.ssh/id_rsa_linchuan_test
 
+# Azure
+Host         40.73.37.81 40.73.39.124 40.73.36.43 40.73.33.137 40.73.112.177 40.73.103.150 40.73.113.111 40.73.36.22 40.73.38.160
+Port         22
+ForwardX11 yes
+ForwardX11Trusted yes
+TCPKeepAlive=yes
+ServerAliveInterval 10
+ServerAliveCountMax 5
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_Azure
+
