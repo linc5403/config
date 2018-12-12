@@ -25,6 +25,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+""""for ripgrep
+Plugin 'jremmen/vim-ripgrep'
+
 """" 文件跳转
 Plugin 'kien/ctrlp.vim'
 """" 文件内搜索
@@ -497,3 +500,5 @@ set so=10
 """" clipboard
 set clipboard=unnamed
 
+""""for ripgrep
+nnoremap <C-g> :Rg<Cr>

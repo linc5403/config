@@ -69,6 +69,7 @@ alias ssh_data='ssh hunch@40.73.37.81'
 alias ssh_celery_beat='ssh hunch@40.73.36.43'
 alias ssh_sql_server='ssh hunch@40.73.39.124'
 alias ssh_azure_test1='ssh hunch@40.73.33.137'
+alias ssh_azure_test2='ssh hunch@40.73.38.160'
 alias ssh_hongkong='ssh -i ~/.ssh/hunch_hongkong.pem root@47.244.117.109'
 
 alias set_online_db="export MYSQL_LOCATION=rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
