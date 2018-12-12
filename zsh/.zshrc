@@ -1,4 +1,6 @@
 export TERM="xterm-256color"
+# for source vim
+export PATH=/opt/local/bin:$PATH
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
