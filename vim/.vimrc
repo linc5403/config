@@ -505,3 +505,8 @@ if has("clipboard")
       set clipboard+=unnamedplus
     endif
 endif
+
+
+""""indent下退格无法使用
+set backspace=indent,eol,start
+
