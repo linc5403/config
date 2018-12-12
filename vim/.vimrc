@@ -29,6 +29,10 @@ Plugin 'gmarik/Vundle.vim'
 """""""""""""for git
 "Plugin 'airblade/vim-gitgutter'
 
+
+""""for ripgrep
+Plugin 'jremmen/vim-ripgrep'
+
 """" 文件跳转
 Plugin 'kien/ctrlp.vim'
 """" 文件内搜索
@@ -510,3 +514,5 @@ endif
 """"indent下退格无法使用
 set backspace=indent,eol,start
 
+""""for ripgrep
+nnoremap <C-g> :Rg<Cr>

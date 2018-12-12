@@ -128,7 +128,7 @@ alias mysql_go_server="mysql -u hunch -pasdf1234 -D go"
 alias viwork="viasset/urls.py asset/models.py asset/asset_util.py asset/asset_view_utils.py asset/asset_views.py asset/*.py project/*.py"
 
 export KEYTIMEOUT=1
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv vcs dir vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
