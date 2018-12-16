@@ -17,8 +17,8 @@ export PATH=$PATH:/Applications/GPAC.app/Contents/MacOS
 export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
-# alias start_mysql_tunnel="ssh -NCPf hunch@40.73.39.124 -L 3388:127.0.0.1:3306"
-alias start_mysql_tunnel="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
+alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
+alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
 alias mysql_local_test="mysql -u root -p -h localhost -D test_db"
 alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
 alias mysql_local_dev="mysql -u root -pasdf1234 -h localhost -D aivideo"
@@ -30,11 +30,11 @@ alias ssh_build="ssh 40.125.172.62"
 #alias ssh_transit="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@121.196.213.142"
 alias ssh_transit="ssh 121.196.213.142"
 alias ssh_extractor="ssh extractor.zenvideo.cn"
-#alias ssh_extractor="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@extractor.zenvideo.cn"
-alias ssh_pre_worker1="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A hunch@139.219.104.30"
-alias ssh_pre_worker2="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A hunch@42.159.81.183"
-alias ssh_pre_worker3="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A hunch@42.159.80.48"
-alias ssh_pre_worker4="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A hunch@42.159.85.184"
+#alias ssh_extractor="ssh root@extractor.zenvideo.cn"
+alias ssh_pre_worker1="ssh hunch@139.219.104.30"
+alias ssh_pre_worker2="ssh hunch@42.159.81.183"
+alias ssh_pre_worker3="ssh hunch@42.159.80.48"
+alias ssh_pre_worker4="ssh hunch@42.159.85.184"
 alias ssh_test_worker1="ssh lvqier@40.125.174.2"
 alias ssh_test_worker2="ssh lvqier@139.219.107.13"
 alias ssh_pro_render1="ssh hunch@139.219.108.22"
@@ -167,7 +167,7 @@ defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
 export KEYTIMEOUT=1
 
 # 加上 "vi_mode"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv dir vcs vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
 # POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes)
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
@@ -178,8 +178,11 @@ autoload -Uz compinit && compinit -i
 
 # npm permission
 export PATH=~/.npm-global/bin:$PATH
-# flake8
-export PATH=/Users/linchuan/Library/Python/2.7/bin:$PATH
+# # flake8
+# export PATH=/Users/linchuan/Library/Python/2.7/bin:$PATH
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
+# for vim projects
+alias vim_aivideo='vim --servername aivideo -S ~/.vim/s/aivideo.vim'
+alias vim_aivideo_add='vim --servername aivideo --remote-silent '

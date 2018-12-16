@@ -25,6 +25,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+""""for autosave sessions
+Plugin 'powerman/vim-plugin-autosess'
+
 """"for ripgrep
 Plugin 'jremmen/vim-ripgrep'
 
@@ -51,7 +54,7 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-autocmd Filetype go Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
@@ -87,6 +90,9 @@ Plugin 'MattesGroeger/vim-bookmarks'
 
 """"" for supertab
 Plugin 'ervandew/supertab'
+
+"""" for js
+Plugin 'pangloss/vim-javascript' 
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -497,8 +503,19 @@ endfunction
 """" 代码上下留10行
 set so=10
 
-"""" clipboard
-set clipboard=unnamed
 
 """"for ripgrep
 nnoremap <C-g> :Rg<Cr>
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+    if has("unnamedplus") " X11 support
+      set clipboard+=unnamedplus
+    endif
+endif
+
+""""autosave and autoload sessions
+
+""""indent下退格无法使用
+set backspace=indent,eol,start
