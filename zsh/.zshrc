@@ -6,6 +6,7 @@ export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:~/bin
+export GOPATH=$(go env GOPATH)
 
 # for pyenv
 export PATH="/home/hunch/.pyenv/bin:$PATH"
@@ -34,8 +35,8 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs virtualenv vi_mode)
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="jreese"
-# ZSH_THEME="agnoster" ## last use this one
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="agnoster" ## last use this one
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 
 # Set list of themes to pick from when loading at random
@@ -122,10 +123,12 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mysql_aivideo="mysql -u hunch -pasdf1234 -D aivideo"
-alias mysql_python_server="mysql -u hunch -pasdf1234 -D python"
-alias mysql_go_server="mysql -u hunch -pasdf1234 -D go"
-alias viwork="viasset/urls.py asset/models.py asset/asset_util.py asset/asset_view_utils.py asset/asset_views.py asset/*.py project/*.py"
+alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
+alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
+alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
+alias mysql_test="mysql -h 127.0.0.1 -P3308 -u hunch -pasdf1234"
+
+
 
 export KEYTIMEOUT=1
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
@@ -134,3 +137,14 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
 POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_VCS_GIT_HOOKS=()
+
+# PROXY
+export http_proxy=http://127.0.0.1:8888
+export https_proxy=http://127.0.0.1:8888
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+set -o vi

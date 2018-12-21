@@ -56,8 +56,8 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-"Plugin 'Valloric/YouCompleteMe'
-autocmd Filetype go Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+"autocmd Filetype go Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
@@ -516,3 +516,6 @@ set backspace=indent,eol,start
 
 """"for ripgrep
 nnoremap <C-g> :Rg<Cr>
+
+""""取消json自动隐藏双引号
+let g:vim_json_syntax_conceal = 0
