@@ -5,11 +5,10 @@ export PATH=/opt/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$PATH:~/bin
 export GOPATH=$(go env GOPATH)
 
 # for pyenv
-export PATH="/home/hunch/.pyenv/bin:$PATH"
+export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -18,7 +17,7 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hunch/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs virtualenv vi_mode)
 

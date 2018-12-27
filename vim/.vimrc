@@ -41,7 +41,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 """" for python
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tell-k/vim-autopep8'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 "Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 "Plugin 'klen/python-mode'
 Plugin 'editorconfig/editorconfig-vim'
@@ -222,7 +222,7 @@ au BufNewFile,BufRead *.py
 """"""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
 " 补全菜单的开启与关闭
 set completeopt=longest,menu                    " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-let g:ycm_min_num_of_chars_for_completion=2             " 从第2个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1             " 从第2个键入字符就开始罗列匹配项
 let g:ycm_cache_omnifunc=1                      " 禁止缓存匹配项,每次都重新生成匹配项
 "let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动补全窗口
@@ -242,7 +242,7 @@ let g:ycm_auto_trigger = 1                  " 开启 YCM 基于标识符补全�
 let g:ycm_seed_identifiers_with_syntax=1                " 开启 YCM 基于语法关键字补全
 let g:ycm_complete_in_comments = 1              " 在注释输入中也能补全
 let g:ycm_complete_in_strings = 1               " 在字符串输入中也能补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0 " 注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串中的文字也会被收入补全
 
 " 重映射快捷键
 "上下左右键的行为 会显示其他信息,inoremap由i 插入模式和noremap不重映射组成，只映射一层，不会映射到映射的映射
