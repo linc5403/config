@@ -41,7 +41,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 """" for python
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tell-k/vim-autopep8'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 "Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 "Plugin 'klen/python-mode'
 Plugin 'editorconfig/editorconfig-vim'

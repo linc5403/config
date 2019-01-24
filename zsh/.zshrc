@@ -127,7 +127,7 @@ alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0
 alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
 alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
 alias mysql_test="mysql -h 127.0.0.1 -P3308 -u hunch -pasdf1234"
-alias mysql_onlie="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
+alias mysql_online="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
 
 alias docker_login_aliyun="docker login --username=gezhongzhanghao@hunch.ai --password=k27jEmfZSt registry.cn-hangzhou.aliyuncs.com"
 
@@ -143,8 +143,8 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_VCS_GIT_HOOKS=()
 
 # PROXY
-export http_proxy=http://127.0.0.1:8888
-export https_proxy=http://127.0.0.1:8888
+# export http_proxy=http://127.0.0.1:8888
+# export https_proxy=http://127.0.0.1:8888
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
