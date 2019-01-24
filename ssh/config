@@ -10,15 +10,6 @@ Host linchuan.github.com
     User git
     IdentityFile ~/.ssh/id_rsa_google
 
-# transit
-HOST 121.196.213.142
-    User root
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
 # workstation
 Host 192.168.1.66        
     User         hunch
@@ -31,7 +22,7 @@ Host 192.168.1.66
 
 
 # Azure
-Host         40.73.37.81 40.73.39.124 40.73.36.43 40.73.33.137 40.73.112.177 40.73.103.150 40.73.113.111 40.73.36.22 40.73.38.160 test1 test2 azure-baidu 40.73.6.131 40.73.5.89 elastic-search online-es
+Host         test1 test2 azure-baidu elastic-search online-es
     Port         22
     User hunch
     ForwardX11 yes
@@ -41,24 +32,6 @@ Host         40.73.37.81 40.73.39.124 40.73.36.43 40.73.33.137 40.73.112.177 40.
     ServerAliveCountMax 5
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_Azure
-
-# extractor.zenvideo.cn
-Host extractor.zenvideo.cn
-    User root
-    IdentityFile ~/.ssh/id_rsa
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
-# build
-Host 40.125.172.62
-    User root
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
 
 # hongkong
 Host         47.224.204.109
