@@ -90,7 +90,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode z zsh-completions)
+
+plugins=(git vi-mode z zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
