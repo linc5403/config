@@ -54,7 +54,7 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
