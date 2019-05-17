@@ -54,7 +54,7 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold'
 
 "YouCompleteMe
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
 Plugin 'scrooloose/nerdtree'  
@@ -85,8 +85,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 
 """"for LaTeX
-"Plugin 'vim-latex/vim-latex'
-"Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'vim-latex/vim-latex'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 """"" for supertab
 Plugin 'ervandew/supertab'
@@ -160,7 +160,7 @@ let NERDTreeAutoCenter=1
 
 """" 语法高亮
 let g:python_highlight_all = 1
-let g:python_version_2 = 1
+let g:python_version_3 = 1
 syntax on
 set number
 set tabstop=4		
@@ -252,7 +252,7 @@ inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>           " force recomile with syntastic
+nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>           " force recomile with syntastic
 "nnoremap <leader>lo :lopen<CR>    "open locationlist
 "nnoremap <leader>lc :lclose<CR>    "close locationlist
 "inoremap <leader><leader> <C-x><C-o>
@@ -268,9 +268,9 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
+"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
- let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
+let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 """"""""""""""""""""""""""""""""""YCM END"""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Plugin syntastic settings.
@@ -281,9 +281,11 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['python'], 'passive_filetypes': []}
+" let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
 " Use pylint to check python files.
 let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_c_checkers = ['make']
 " 设置错误符号
 let g:syntastic_error_symbol='✗'
 " " 设置警告符号
@@ -300,23 +302,23 @@ highlight SpellCap cterm=underline ctermbg=128 ctermfg=007
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quickly Run
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"map <F5> :call CompileRunGcc()<CR>
-"
-"func! CompileRunGcc()
-"    exec "w"
-"    if &filetype == 'c'
-"        exec '!g++ % -o %<'
-"        exec '!time ./%<'
-"    elseif &filetype == 'cpp'
-"        exec '!g++ % -o %<'
-"        exec '!time ./%<'
-"    elseif &filetype == 'python'
-"        exec '!time python %'
-"    elseif &filetype == 'sh'
-"        :!time bash %
-"    endif
-"endfunc
+
+map <F5> :call CompileRunGcc()<CR>
+
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'cpp'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'python'
+        exec '!time python %'
+    elseif &filetype == 'sh'
+        :!time bash %
+    endif
+endfunc
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -426,21 +428,21 @@ let g:airline#extensions#virtualenv#enabled = 0
 map <F4> :TagbarToggle<CR>
 
 """"for LaTeX
-"filetype plugin on
-"set grepprg=grep\ -nH\ $*
-"filetype indent on
-"let g:tex_flavor='latex'
-"autocmd filetype tex imap ∫ Tex_MathBF
-"autocmd filetype tex imap ç Tex_MathCal
-"autocmd filetype tex imap ¬ Tex_LeftRight
-"autocmd filetype tex imap ˆ Tex_InsertItemOnThisLine
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+filetype indent on
+let g:tex_flavor='latex'
+autocmd filetype tex imap ∫ Tex_MathBF
+autocmd filetype tex imap ç Tex_MathCal
+autocmd filetype tex imap ¬ Tex_LeftRight
+autocmd filetype tex imap ˆ Tex_InsertItemOnThisLine
 let g:Tex_GotoError = 0
 let g:Tex_ShowErrorContext = 0
 "-----------------latex live preview-------------------------
 "autocmd filetype tex setl updatetime=1000
-"autocmd Filetype tex setl updatetime=1
+autocmd Filetype tex setl updatetime=1
 "let g:livepreview_previewer = 'open -a Skim'
-"let g:livepreview_previewer = 'open -a Preview'
+let g:livepreview_previewer = 'open -a Preview'
 "let g:livepreview_previewer = 'open -a texshop'
 
 """"for quickfix
@@ -519,3 +521,8 @@ endif
 
 """"indent下退格无法使用
 set backspace=indent,eol,start
+
+"""" gui
+colorscheme desert
+set guifont=MonofurNerdFontCompleteM-:h18
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'

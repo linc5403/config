@@ -16,7 +16,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export PATH=$PATH:/Applications/GPAC.app/Contents/MacOS
 export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
-
+export PATH=$PATH:/Users/linchuan/Library/Python/2.7/bin
+alias start_vpn="ssh -qTCnfND 7070 hongkong"
 alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
 alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
 alias mysql_local_test="mysql -u root -p -h localhost -D test_db"
@@ -182,8 +183,30 @@ export PATH=~/.npm-global/bin:$PATH
 # # flake8
 # export PATH=/Users/linchuan/Library/Python/2.7/bin:$PATH
 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # for vim projects
 alias vim_aivideo='vim --servername aivideo -S ~/.vim/s/aivideo.vim'
 alias vim_aivideo_add='vim --servername aivideo --remote-silent '
+
+
+# for local bin
+export PATH=$PATH:~/bin
+export http_proxy=http://127.0.0.1:8123
+export https_proxy=http://127.0.0.1:8123
+
+
+
+# for java
+
+# Mac默认 JDK 12（Mac默认自带了一个jdk6版本）  
+export JAVA_12_HOME=$(/usr/libexec/java_home -v 12)
+# 设置 JDK 8  
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
+  
+#默认JDK 12  
+export JAVA_HOME=$JAVA_12_HOME
+  
+#alias命令动态切换JDK版本  
+alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk12='export JAVA_HOME=$JAVA_12_HOME'
