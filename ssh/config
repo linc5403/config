@@ -2,13 +2,17 @@
 Host github.com
     HostName github.com
     User git
+    AddKeysToAgent yes
+    UseKeychain yes
     IdentityFile ~/.ssh/id_rsa
 
 # private
 Host linchuan.github.com
     HostName github.com
     User git
-    IdentityFile  ~/.ssh/id_rsa_google
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile  ~/.ssh/id_rsa_macpro
 
 # transit
 HOST 121.196.213.142
