@@ -19,7 +19,8 @@ autoload -Uz compinit && compinit -i
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs virtualenv vi_mode)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs virtualenv vi_mode)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv vi_mode)
 
 # POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_HIDE_BRANCH_ICON=true
@@ -135,6 +136,7 @@ alias tmux="tmux -u"
 
 export KEYTIMEOUT=1
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv vcs dir vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
@@ -142,8 +144,6 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_VCS_GIT_HOOKS=()
 
 # PROXY
-export http_proxy=http://127.0.0.1:8888
-export https_proxy=http://127.0.0.1:8888
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -151,3 +151,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 set -o vi
+
+
+# export http_proxy=http://127.0.0.1:8123
+# export https_proxy=http://127.0.0.1:8123

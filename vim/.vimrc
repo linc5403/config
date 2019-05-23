@@ -41,7 +41,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 """" for python
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tell-k/vim-autopep8'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 "Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 "Plugin 'klen/python-mode'
 Plugin 'editorconfig/editorconfig-vim'
@@ -301,28 +301,28 @@ highlight SpellCap cterm=underline ctermbg=128 ctermfg=007
 " Quickly Run
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"map <F5> :call CompileRunGcc()<CR>
-"
-"func! CompileRunGcc()
-"    exec "w"
-"    if &filetype == 'c'
-"        exec '!g++ % -o %<'
-"        exec '!time ./%<'
-"    elseif &filetype == 'cpp'
-"        exec '!g++ % -o %<'
-"        exec '!time ./%<'
-"    elseif &filetype == 'python'
-"        exec '!time python %'
-"    elseif &filetype == 'sh'
-"        :!time bash %
-"    endif
-"endfunc
+map <F5> :call CompileRunGcc()<CR>
+
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'cpp'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'python'
+        exec '!time python %'
+    elseif &filetype == 'sh'
+        :!time bash %
+    endif
+endfunc
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " flake8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:flake8_quickfix_height=10
+" let g:flake8_quickfix_height=10
 
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
@@ -448,6 +448,7 @@ nmap <leader>o :copen<CR>
 
 """"for yapf
 "autocmd BufWritePre *.py 0,$!yapf
+ let g:yapf_style = "pep8"
 
 if exists('$TMUX')
 	set term=screen-256color
