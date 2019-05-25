@@ -25,6 +25,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+" markdown toc
+Plugin 'mzlogin/vim-markdown-toc'
+
 """"for autosave sessions
 Plugin 'powerman/vim-plugin-autosess'
 

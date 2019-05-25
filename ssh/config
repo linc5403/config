@@ -1,18 +1,29 @@
 # work
 Host github.com
     HostName github.com
+    ForwardAgent no
     User git
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_rsa_work
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
 
 # private
 Host linchuan.github.com
     HostName github.com
+    ForwardAgent no
     User git
     IdentityFile  ~/.ssh/id_rsa_macpro
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
 
 # transit
 HOST 121.196.213.142
     User root
+    AddKeysToAgent yes
     IdentityFile ~/.ssh/id_rsa
     ForwardAgent yes
     TCPKeepAlive=yes
@@ -67,6 +78,7 @@ Host extractor.zenvideo.cn
 Host 40.125.172.62
     User root
     IdentityFile ~/.ssh/id_rsa
+    AddKeysToAgent yes
     ForwardAgent yes
     TCPKeepAlive=yes
     ServerAliveInterval 10
