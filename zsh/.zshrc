@@ -1,3 +1,4 @@
+export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export TERM="xterm-256color"
 # zsh-completions
