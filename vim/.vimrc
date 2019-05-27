@@ -60,10 +60,13 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
-Plugin 'scrooloose/nerdtree'  
-Plugin 'Xuyuanp/nerdtree-git-plugin'  
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'scrooloose/nerdtree'  
+" Plugin 'Xuyuanp/nerdtree-git-plugin'  
+" Plugin 'jistr/vim-nerdtree-tabs'
 """""nerdtree end  """"
+
+"""" git
+Plugin 'tpope/vim-fugitive'
 
 " markdown instant
 Plugin 'suan/vim-instant-markdown'
@@ -141,17 +144,17 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " 开发的过程中，我们希望git信息直接在NERDTree中显示出来， 和Eclipse一样，修改的文件和增加的文件都给出相应的标注， 这时需要安装的插件就是 nerdtree-git-plugin,配置信息如下
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ "Unknown"   : "?"
+"     \ }
 
 " 显示行号
 let NERDTreeShowLineNumbers=0
@@ -227,8 +230,8 @@ au BufNewFile,BufRead *.py
 " 补全菜单的开启与关闭
 set completeopt=longest,menu                    " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 let g:ycm_min_num_of_chars_for_completion=2             " 从第2个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=1
-"let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
+"let g:ycm_cache_omnifunc=1
+let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动补全窗口
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
@@ -274,6 +277,18 @@ let g:ycm_extra_conf_vim_data = [
 "let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
 let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
+
+
+"""" 语法补全
+let g:ycm_key_invoke_completion = '<c-z>'
+
+noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+
 """"""""""""""""""""""""""""""""""YCM END"""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Plugin syntastic settings.
