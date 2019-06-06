@@ -25,8 +25,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-" markdown toc
-Plugin 'mzlogin/vim-markdown-toc'
 
 """"for autosave sessions
 Plugin 'powerman/vim-plugin-autosess'
@@ -68,6 +66,9 @@ Plugin 'Valloric/YouCompleteMe'
 """" git
 Plugin 'tpope/vim-fugitive'
 
+" markdown toc
+Plugin 'mzlogin/vim-markdown-toc'
+
 " markdown instant
 Plugin 'suan/vim-instant-markdown'
 
@@ -99,6 +100,9 @@ Plugin 'ervandew/supertab'
 
 """" for js
 Plugin 'pangloss/vim-javascript' 
+
+"""" for templates
+Plugin 'tibabit/vim-templates'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -342,7 +346,7 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " flake8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:flake8_quickfix_height=10
+"let g:flake8_quickfix_height=10
 
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
@@ -544,3 +548,12 @@ set backspace=indent,eol,start
 colorscheme desert
 set guifont=MonofurNerdFontCompleteM-:h18
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+
+
+""""关掉markdown的语法高亮
+autocmd BufRead,BufNewFile {*.markdown,*.mdown,*.mkdn,*.md,*.mkd,*.mdwn,*.mdtxt,*.mdtext,*.text} set filetype=markdown
+autocmd FileType markdown setlocal syntax=off
+
+
+"""" for templates
+let g:tmpl_author_email = 'linch1982@gmail.com'
