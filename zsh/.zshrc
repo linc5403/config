@@ -1,3 +1,4 @@
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export TERM="xterm-256color"
@@ -77,6 +78,8 @@ alias ssh_hongkong='ssh -i ~/.ssh/hunch_hongkong.pem root@47.244.117.109'
 
 alias set_online_db="export MYSQL_LOCATION=rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
 alias unset_online_db="unset MYSQL_LOCATION"
+
+alias date-file="date '+%Y-%m-%d-%H-%M'"
 #########################################################################
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -193,10 +196,13 @@ alias vim_aivideo_add='vim --servername aivideo --remote-silent '
 
 # for local bin
 export PATH=$PATH:~/bin
-export http_proxy=http://127.0.0.1:8123
-export https_proxy=http://127.0.0.1:8123
 
+# for local_proxy
 
+# unproxy
+alias unproxy='unset http_proxy; unset https_proxy; unset all_proxy'
+alias proxy='unproxy; export http_proxy=http://127.0.0.1:8123; export https_proxy=http://127.0.0.1:8123'
+proxy
 
 # for java
 

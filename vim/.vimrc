@@ -58,8 +58,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
-" Plugin 'scrooloose/nerdtree'  
-" Plugin 'Xuyuanp/nerdtree-git-plugin'  
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'jistr/vim-nerdtree-tabs'
 """""nerdtree end  """"
 
@@ -99,7 +99,7 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'ervandew/supertab'
 
 """" for js
-Plugin 'pangloss/vim-javascript' 
+Plugin 'pangloss/vim-javascript'
 
 """" for templates
 Plugin 'tibabit/vim-templates'
@@ -139,7 +139,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 打开vim时自动打开NERDTree
-" autocmd vimenter * NERDTree          "先不打开了，看起来好烦 
+" autocmd vimenter * NERDTree          "先不打开了，看起来好烦
 "How can I open NERDTree automatically when vim starts up on opening a directory?
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -173,17 +173,17 @@ let g:python_highlight_all = 1
 let g:python_version_3 = 1
 syntax on
 set number
-set tabstop=4		
-set softtabstop=4	
-set shiftwidth=4	
-set expandtab		
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
 set showmatch
 set mouse=a
-set hlsearch 
+set hlsearch
 ""高亮配色
 highlight Search ctermfg=6 ctermbg=0 guifg=Black guibg=Grey
-set incsearch 				" 搜索时自动跟进
+set incsearch               " 搜索时自动跟进
 
 
 """"""分割窗口跳转的快捷键设置
@@ -195,7 +195,7 @@ nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分�
 """"""分割窗口跳转的快捷键设置
 
 """""""""""""""代码折叠""""""
-set foldclose=all	"关闭自动折叠
+set foldclose=all   "关闭自动折叠
 set foldmethod=manual                " 手动开启折叠
 "set foldlevel=99
 " 使用空格键会是更好的选择,所以在你的配置文件中加上这一行命令吧：
@@ -221,14 +221,22 @@ set encoding=utf-8
 
 
 au BufNewFile,BufRead *.py
-\ set tabstop=4		|
-\ set softtabstop=4	|
-\ set shiftwidth=4	|
-"\ set textwidth=79	|
-\ set expandtab		|
-\ set autoindent	|
+\ set tabstop=4     |
+\ set softtabstop=4 |
+\ set shiftwidth=4  |
+"\ set textwidth=79 |
+\ set expandtab     |
+\ set autoindent    |
 \ set fileformat=unix
 
+au BufNewFile,BufRead *.sh
+\ set tabstop=2     |
+\ set softtabstop=2 |
+\ set shiftwidth=2  |
+"\ set textwidth=79 |
+\ set expandtab     |
+\ set autoindent    |
+\ set fileformat=unix
 
 """"""""""""""""""""""""""""""""""YCM"""""""""""""""""""""""""""""""""""""""""""""""""
 " 补全菜单的开启与关闭
@@ -278,7 +286,7 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
-"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
+"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
 
 let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 
@@ -353,7 +361,7 @@ endfunc
 " nmap     <C-F>n <Plug>CtrlSFCwordPath
 " nmap n <Plug>CtrlSFCwordPath
 " Control + W 搜索当前单词
-" nmap <C-W> <Plug>CtrlSFCwordPath 
+" nmap <C-W> <Plug>CtrlSFCwordPath
 " Control + N 搜索
 " nmap <C-N> <Plug>CtrlSFPrompt
 " nmap <C-N> <Plug>CtrlSFCwordPath
@@ -476,7 +484,7 @@ nmap <leader>o :copen<CR>
 "autocmd BufWritePre *.py 0,$!yapf
 
 if exists('$TMUX')
-	set term=screen-256color
+    set term=screen-256color
 endif
 
 "let g:pymode_virtualenv = 1
