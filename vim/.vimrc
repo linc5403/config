@@ -25,6 +25,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+"""" for xml
+Plugin 'othree/xml.vim'
 
 """"for autosave sessions
 Plugin 'powerman/vim-plugin-autosess'
@@ -70,7 +72,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mzlogin/vim-markdown-toc'
 
 " markdown instant
-Plugin 'suan/vim-instant-markdown'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+
 
 " 语法检查
 Plugin 'scrooloose/syntastic'
@@ -103,6 +106,9 @@ Plugin 'pangloss/vim-javascript'
 
 """" for templates
 Plugin 'tibabit/vim-templates'
+
+"""" for chinese input
+Plugin 'lyokha/vim-xkbswitch'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -565,3 +571,18 @@ autocmd FileType markdown setlocal syntax=off
 
 """" for templates
 let g:tmpl_author_email = 'linch1982@gmail.com'
+set shell=bash\ -i
+
+filetype on
+
+
+"""" markdown
+let g:instant_markdown_port = 8888
+
+"""" for chinese input
+let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchNLayout = 'us'
+let g:XkbSwitchILayout = 'us'
+autocmd BufEnter * let b:XkbSwitchILayout = 'us'
+

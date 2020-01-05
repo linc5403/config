@@ -8,77 +8,14 @@ export DEFAULT_USER=linchuan
 
 export PYENV_ROOT=~/.pyenv
 
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# pyenv
+export PATH=~/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 #RabbitMQ Config
 export PATH=$PATH:/usr/local/sbin
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export PATH=$PATH:/Applications/GPAC.app/Contents/MacOS
-export PATH=$PATH:~/bin:/Users/linchuan/workdir/bin
-export PATH=$PATH:/Applications/MacVim.app/Contents/bin
-export PATH=$PATH:/Users/linchuan/Library/Python/2.7/bin
-alias start_vpn="ssh -qTCnfND 7070 hongkong"
-alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
-alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
-alias mysql_local_test="mysql -u root -p -h localhost -D test_db"
-alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
-alias mysql_local_dev="mysql -u root -pasdf1234 -h localhost -D aivideo"
-alias mysql_online="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
-alias mysql_baidu="mysql -u aivideo -paivideo_2019 -D aivideo -h mysql55.rdsm7ft4q0ecak8.rds.gz.baidubce.com"
-# alias mysql_db_server="mysql -u hunch -pasdf1234 -h 40.73.39.124"
-# alias mysql_db_server="mysql -u hunch -pasdf1234 -h 127.0.0.1 -P 3388"
-# alias ssh_build="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@40.125.172.62"
-alias ssh_build="ssh 40.125.172.62"
-# alias ssh_transit="ssh-agent; ssh-add ~/.ssh/id_rsa; ssh -i ~/.ssh/id_rsa -A root@121.196.213.142"
-alias ssh_transit="ssh 121.196.213.142"
-alias ssh_extractor="ssh extractor.zenvideo.cn"
-#alias ssh_extractor="ssh root@extractor.zenvideo.cn"
-alias ssh_pre_worker1="ssh hunch@139.219.104.30"
-alias ssh_pre_worker2="ssh hunch@42.159.81.183"
-alias ssh_pre_worker3="ssh hunch@42.159.80.48"
-alias ssh_pre_worker4="ssh hunch@42.159.85.184"
-alias ssh_test_worker1="ssh lvqier@40.125.174.2"
-alias ssh_test_worker2="ssh lvqier@139.219.107.13"
-alias ssh_pro_render1="ssh hunch@139.219.108.22"
-alias ssh_pro_render2="ssh hunch@139.219.98.236"
-alias ssh_pro_render3="ssh hunch@139.219.100.105"
-alias ssh_pro_render4="ssh hunch@139.219.101.166"
-alias ssh_pro_render5="ssh hunch@139.219.97.246"
-alias ssh_pro_render6="ssh hunch@40.125.212.20"
-alias ssh_pro_render7="ssh hunch@40.125.171.77"
-alias ssh_pro_render8="ssh hunch@40.125.207.30"
-alias ssh_pro_render9="ssh hunch@40.125.162.117"
-alias ssh_pro_render10="ssh hunch@40.125.164.133"
-alias ssh_pro_render11="ssh hunch@139.219.110.91"
-alias ssh_pro_render12="ssh hunch@139.219.69.174"
-alias ssh_pro_render13="ssh hunch@139.219.101.33"
-alias ssh_pro_render14="ssh hunch@40.125.175.34"
-alias ssh_pro_render15="ssh hunch@40.125.162.96"
-alias ssh_pro_render16="ssh hunch@139.219.68.174"
-alias ssh_pro_render17="ssh hunch@139.219.65.202"
-alias ssh_pro_render18="ssh hunch@40.125.168.247"
-alias ssh_pro_render19="ssh hunch@40.125.212.9"
-alias ssh_dev="ssh hunch@139.219.10.159"
-alias ssh_svg_render1='ssh hunch@139.219.65.1'
-alias ssh_svg_render2='ssh hunch@139.219.106.210'
-alias ssh_daily='ssh hunch@139.219.10.159'
-alias ssh_daily2='ssh hunch@139.219.11.75'
-alias ssh_flow1='ssh -l hunch 40.73.112.177'
-alias ssh_flow2='ssh -l hunch 40.73.103.150'
-alias ssh_flow3='ssh -l hunch 40.73.113.111'
-alias ssh_flow4='ssh -l hunch 40.73.36.22'
-alias ssh_data='ssh hunch@40.73.37.81'
-alias ssh_celery_beat='ssh hunch@40.73.36.43'
-alias ssh_sql_server='ssh hunch@40.73.39.124'
-alias ssh_azure_test1='ssh hunch@40.73.33.137'
-alias ssh_azure_test2='ssh hunch@40.73.38.160'
-alias ssh_hongkong='ssh -i ~/.ssh/hunch_hongkong.pem root@47.244.117.109'
-
-alias set_online_db="export MYSQL_LOCATION=rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
-alias unset_online_db="unset MYSQL_LOCATION"
-
 alias date-file="date '+%Y-%m-%d-%H-%M'"
 #########################################################################
 # Path to your oh-my-zsh installation.
@@ -87,12 +24,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell" ## default
 # ZSH_THEME="powerline"
 # ZSH_THEME="ys"
 # ZSH_THEME="random"
-ZSH_THEME="agnoster" ## last use this 
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="agnoster" ## last use this 
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="spaceship"
 
 
@@ -165,7 +102,7 @@ export EDITOR='vim'
 
 # PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
 
@@ -201,19 +138,31 @@ export PATH=$PATH:~/bin
 
 # unproxy
 alias unproxy='unset http_proxy; unset https_proxy; unset all_proxy'
-alias proxy='unproxy; export http_proxy=http://127.0.0.1:8123; export https_proxy=http://127.0.0.1:8123'
-proxy
+alias proxy='unproxy; export http_proxy=http://127.0.0.1:7078; export https_proxy=http://127.0.0.1:7078'
+# proxy
 
 # for java
 
-# Mac默认 JDK 12（Mac默认自带了一个jdk6版本）  
-export JAVA_12_HOME=$(/usr/libexec/java_home -v 12)
+# export JAVA_13_HOME=$(/usr/libexec/java_home -v 13)
 # 设置 JDK 8  
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
-  
-#默认JDK 12  
-export JAVA_HOME=$JAVA_12_HOME
-  
-#alias命令动态切换JDK版本  
+#   
+# #默认JDK 13  
+# export JAVA_HOME=$JAVA_13_HOME
+#   
+# #alias命令动态切换JDK版本  
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
-alias jdk12='export JAVA_HOME=$JAVA_12_HOME'
+# alias jdk12='export JAVA_HOME=$JAVA_12_HOME'
+jdk8
+
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+
+# homebrew
+export HOMEBREW_NO_AUTO_UPDATE=true
+
+alias mysql-local='mysql -uroot -pasdf1234 -D banyuan'
+
+
+# pip
+export PATH=~/Library/Python/3.7/bin:$PATH
