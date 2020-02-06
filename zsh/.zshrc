@@ -92,7 +92,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git vi-mode z zsh-completions)
+# plugins=(git vi-mode z zsh-completions)
+plugins=(git z zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='vim'
+# export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -124,22 +125,23 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
-alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
-alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
-alias mysql_test="mysql -h 127.0.0.1 -P3308 -u hunch -pasdf1234"
-alias mysql_online="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
+# alias start_mysql_tunnel_test_3308="ssh -NCPf hunch@40.73.33.137 -L 3308:127.0.0.1:3306"
+# alias start_mysql_tunnel_dev_3307="ssh -fN -L3307:localdevdb.mysql.database.chinacloudapi.cn:3306 hunch@139.219.10.159"
+# alias mysql_dev="mysql -h 127.0.0.1 -P3307 -u hunch@localdevdb -pAsdf\!\@\#\$ aivideo"
+# alias mysql_test="mysql -h 127.0.0.1 -P3308 -u hunch -pasdf1234"
+# alias mysql_online="mysql -u aivideo -pbdNJX5XXsT -D aivideo -h rm-bp1l867aq21qq1l7h2o.mysql.rds.aliyuncs.com"
 
-alias docker_login_aliyun="docker login --username=gezhongzhanghao@hunch.ai --password=k27jEmfZSt registry.cn-hangzhou.aliyuncs.com"
+# alias docker_login_aliyun="docker login --username=gezhongzhanghao@hunch.ai --password=k27jEmfZSt registry.cn-hangzhou.aliyuncs.com"
 
-alias tmux="tmux -u"
+# alias tmux="tmux -u"
 
 
 export KEYTIMEOUT=1
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir)
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv vcs dir vi_mode)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
 POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_VCS_GIT_HOOKS=()
@@ -148,9 +150,15 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # export http_proxy=http://127.0.0.1:8888
 # export https_proxy=http://127.0.0.1:8888
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-set -o vi
+# set -o vi
+
+export JAVA_HOME=~/software/jdk-11.0.6
+export PATH=$PATH:$JAVA_HOME/bin
+
+# for powerline
+source /usr/share/powerline/bindings/zsh/powerline.zsh

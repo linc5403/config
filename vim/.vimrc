@@ -277,7 +277,7 @@ let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
  let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 
 """" 语法补全
-let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_key_invoke_completion = '<a-z>'
 
 noremap <c-z> <NOP>
 
