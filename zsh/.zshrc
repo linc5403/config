@@ -93,7 +93,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 
 # plugins=(git vi-mode z zsh-completions)
-plugins=(git z zsh-completions)
+plugins=(git z zsh-completions docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -162,3 +162,27 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # for powerline
 source /usr/share/powerline/bindings/zsh/powerline.zsh
+
+# for vs code
+export PATH=$PATH:~/software/VSCode-linux-x64/bin
+
+# for docs tools
+export PATH=$PATH:~/docs/tools
+
+export EDITOR='emacs -nw'
+
+# for idea
+export PATH=$PATH:/home/linc/software/idea-IU-193.6015.39/bin
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+

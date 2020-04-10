@@ -25,6 +25,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+"""" for c
+Plugin 'c.vim'
 
 """""""""""""for git
 " 可以用git命令的
@@ -272,9 +274,10 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py' 
 
- let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
+let g:ycm_global_ycm_extra_conf = '~/.global_extra_conf.py' 
+
+let g:ycm_confirm_extra_conf=0                  " 关闭加载.ycm_extra_conf.py确认提示
 
 """" 语法补全
 let g:ycm_key_invoke_completion = '<a-z>'
@@ -353,20 +356,20 @@ nmap <leader>f <Plug>CtrlSFCwordPath
 
 """"""disable matchpairs
 " Disable parentheses matching depends on system. This way we should address all cases (?)
-set noshowmatch
+" set noshowmatch
 " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
 " Trying disable MatchParen after loading all plugins
 "
-function! g:FuckThatMatchParen ()
-    if exists(":NoMatchParen")
-        :NoMatchParen
-    endif
-endfunction
-
-augroup plugin_initialize
-    autocmd!
-    autocmd VimEnter * call FuckThatMatchParen()
-augroup END
+" function! g:FuckThatMatchParen ()
+"     if exists(":NoMatchParen")
+"         :NoMatchParen
+"     endif
+" endfunction
+" 
+" augroup plugin_initialize
+"     autocmd!
+"     autocmd VimEnter * call FuckThatMatchParen()
+" augroup END
 
 """""""""""""""""""python-mode"""""""""""""""
 " let g:pymode_python = 'python3'
