@@ -60,9 +60,9 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
 """""nerdtree end  """"
 
 """" git
@@ -76,7 +76,7 @@ Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 
 " 语法检查
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
 """"自动加括号
@@ -108,7 +108,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tibabit/vim-templates'
 
 """" for chinese input
-Plugin 'lyokha/vim-xkbswitch'
+" Plugin 'lyokha/vim-xkbswitch'
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
 Plugin 'dyng/ctrlsf.vim'
@@ -130,17 +130,17 @@ filetype plugin indent on    " required
 
 """""nerdtree begin""""
 "使用F3键快速调出和隐藏它
-map <F3> :NERDTreeToggle<CR>
-let NERDTreeChDirMode=1
-"显示书签"
-let NERDTreeShowBookmarks=1
-"设置忽略文件类型"
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-"窗口大小"
-let NERDTreeWinSize=33
-" 修改默认箭头
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+"map <F3> :NERDTreeToggle<CR>
+"let NERDTreeChDirMode=1
+""显示书签"
+"let NERDTreeShowBookmarks=1
+""设置忽略文件类型"
+"let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+""窗口大小"
+"let NERDTreeWinSize=33
+"" 修改默认箭头
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
 "How can I open a NERDTree automatically when vim starts up if no files were specified?
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -309,31 +309,31 @@ let g:ycm_semantic_triggers =  {
 
 """"""""""""""""""""""""""""""""""YCM END"""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Plugin syntastic settings.
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-" let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
-" Use pylint to check python files.
-let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_c_checkers = ['make']
-" 设置错误符号
-let g:syntastic_error_symbol='✗'
-" " 设置警告符号
-let g:syntastic_warning_symbol='⚠'
-" map <F4> :SyntasticToggleMode<CR> :SyntasticCheck<CR>
-" 设置颜色
-highlight SpellBad cterm=underline ctermbg=128 ctermfg=007
-highlight SpellCap cterm=underline ctermbg=128 ctermfg=007
-
-"highlight SyntasticErrorSign cterm=underline ctermbg=grey ctermfg=darkblue
-"highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
-"highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+"" Plugin syntastic settings.
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"" let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
+"let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['python', 'c'], 'passive_filetypes': []}
+"" Use pylint to check python files.
+"let g:syntastic_python_checkers = ['flake8']
+"" let g:syntastic_c_checkers = ['make']
+"" 设置错误符号
+"let g:syntastic_error_symbol='✗'
+"" " 设置警告符号
+"let g:syntastic_warning_symbol='⚠'
+"" map <F4> :SyntasticToggleMode<CR> :SyntasticCheck<CR>
+"" 设置颜色
+"highlight SpellBad cterm=underline ctermbg=128 ctermfg=007
+"highlight SpellCap cterm=underline ctermbg=128 ctermfg=007
+"
+""highlight SyntasticErrorSign cterm=underline ctermbg=grey ctermfg=darkblue
+""highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+""highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quickly Run
@@ -381,16 +381,16 @@ set noshowmatch
 " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
 " Trying disable MatchParen after loading all plugins
 "
-function! g:FuckThatMatchParen ()
-    if exists(":NoMatchParen")
-        :NoMatchParen
-    endif
-endfunction
+" function! g:FuckThatMatchParen ()
+"     if exists(":NoMatchParen")
+"         :NoMatchParen
+"     endif
+" endfunction
 
-augroup plugin_initialize
-    autocmd!
-    autocmd VimEnter * call FuckThatMatchParen()
-augroup END
+" augroup plugin_initialize
+"     autocmd!
+"     autocmd VimEnter * call FuckThatMatchParen()
+" augroup END
 
 """""""""""""""""""python-mode"""""""""""""""
 " let g:pymode_python = 'python3'

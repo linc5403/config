@@ -83,7 +83,8 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode z docker)
+plugins=(z docker)
+# plugins=(vi-mode z docker)
 # plugins=(vi-mode z pyenv docker)
 # plugins=(git vi-mode z pyenv docker)
 export VIRTUAL_ENV_DISABLE_PROMPT=0
@@ -98,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export EDITOR='vim'
+# export EDITOR='vim'
 
 # PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
@@ -110,7 +111,8 @@ defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
 export KEYTIMEOUT=1
 
 # 加上 "vi_mode"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv vcs dir vi_mode)
 # POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes)
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
@@ -127,8 +129,8 @@ export PATH=~/.npm-global/bin:$PATH
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 # for vim projects
-alias vim_aivideo='vim --servername aivideo -S ~/.vim/s/aivideo.vim'
-alias vim_aivideo_add='vim --servername aivideo --remote-silent '
+# alias vim_aivideo='vim --servername aivideo -S ~/.vim/s/aivideo.vim'
+# alias vim_aivideo_add='vim --servername aivideo --remote-silent '
 
 
 # for local bin
@@ -143,15 +145,16 @@ alias proxy='unproxy; export http_proxy=http://127.0.0.1:7078; export https_prox
 
 # for java
 
-# export JAVA_13_HOME=$(/usr/libexec/java_home -v 13)
+export JAVA_11_HOME=~/bin/jdk-11.0.5.jdk/Contents/Home
 # 设置 JDK 8  
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 #   
 # #默认JDK 13  
-# export JAVA_HOME=$JAVA_13_HOME
+# export JAVA_HOME=$JAVA_11_HOME
 #   
 # #alias命令动态切换JDK版本  
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
 # alias jdk12='export JAVA_HOME=$JAVA_12_HOME'
 jdk8
 
@@ -166,3 +169,8 @@ alias mysql-local='mysql -uroot -pasdf1234 -D banyuan'
 
 # pip
 export PATH=~/Library/Python/3.7/bin:$PATH
+export PATH=$PATH:"~/Google 云端硬盘/lectures/docs/tools"
+
+
+# for java
+export JAVA_HOME=/Users/banyuan/bin/jdk-11.0.7.jdk/Contents/Home

@@ -3,6 +3,8 @@ Host github.com
     HostName github.com
     ForwardAgent no
     User git
+    # socks5端口号
+    ProxyCommand /usr/bin/nc -x 127.0.0.1:1086 %h %p
     IdentityFile ~/.ssh/id_rsa_work
     StrictHostKeyChecking no
     IdentitiesOnly yes
@@ -12,6 +14,8 @@ Host linchuan.github.com
     HostName github.com
     ForwardAgent no
     User git
+    # socks5端口号
+    ProxyCommand /usr/bin/nc -x 127.0.0.1:1086 %h %p
     IdentityFile  ~/.ssh/id_rsa_macpro
     StrictHostKeyChecking no
     IdentitiesOnly yes
