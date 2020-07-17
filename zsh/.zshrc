@@ -8,6 +8,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 
 # for pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -93,7 +94,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 
 # plugins=(git vi-mode z zsh-completions)
-plugins=(git z zsh-completions docker docker-compose)
+# plugins=(git z zsh-completions docker docker-compose)
+plugins=(git z zsh-completions mvn docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -186,3 +188,13 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
+export PATH=/home/linc/software/node-v12.18.1-linux-x64/bin:$PATH
+
+#alias for cnpm
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npm.taobao.org/dist \
+  --userconfig=$HOME/.cnpmrc"
+
+#alias for open
+alias open="xdg-open"

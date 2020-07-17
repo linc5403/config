@@ -54,6 +54,8 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'vim-python/python-syntax'
+"""" for xml
+Plugin 'othree/xml.vim'
 """" end
 
 """" 缩进指示线
@@ -74,13 +76,16 @@ Plugin 'jistr/vim-nerdtree-tabs'
 
 " markdown instant
 Plugin 'suan/vim-instant-markdown'
+" markdown toc
+Plugin 'mzlogin/vim-markdown-toc'
+
 
 " 语法检查
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
 """"自动加括号
-" Plugin 'jiangmiao/auto-pairs'
+"Plugin 'jiangmiao/auto-pairs'
 
 """"配色方案
 Plugin 'jnurmine/Zenburn'
@@ -267,6 +272,7 @@ let g:ycm_key_list_stop_completion = ['<CR>']
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
 nnoremap <leader>jr :YcmCompleter GoToReferences<CR> " 跳转到引用处
+nnoremap <leader>jf :YcmCompleter FixIt<CR> " 跳转到引用处
 """"""""YCM FOR PYTHON VIRTUAL ENVIROMENT
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
