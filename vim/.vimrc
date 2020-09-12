@@ -85,7 +85,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
 """"自动加括号
-"Plugin 'jiangmiao/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
 
 """"配色方案
 Plugin 'jnurmine/Zenburn'
@@ -114,6 +114,10 @@ Plugin 'majutsushi/tagbar'
 
 """""""""""""""""""""""for golang
 Plugin 'fatih/vim-go'
+
+"""" for web
+Plugin 'mattn/emmet-vim'
+
 
 
 

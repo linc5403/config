@@ -34,10 +34,10 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="jreese"
 # ZSH_THEME="agnoster" ## last use this one
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 
 # Set list of themes to pick from when loading at random
@@ -138,14 +138,17 @@ source $ZSH/oh-my-zsh.sh
 # alias tmux="tmux -u"
 
 
-export KEYTIMEOUT=1
+#### for powerlevel9k in use
+####export KEYTIMEOUT=1
+####POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir)
+####POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
+####POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
+####POWERLEVEL9K_MODE='nerdfont-complete'
+
+
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir vi_mode)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context vcs dir)
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv vcs dir vi_mode)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ram load time)
-POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-stash)
-POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_VCS_GIT_HOOKS=()
 
 # PROXY
@@ -162,8 +165,10 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 export JAVA_HOME=~/software/jdk-11.0.6
 export PATH=$PATH:$JAVA_HOME/bin
 
+# recover robbyrussell 2020-0911
+# 下面这一行会修改robbyrussell的样式
 # for powerline
-source /usr/share/powerline/bindings/zsh/powerline.zsh
+## source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 # for vs code
 export PATH=$PATH:~/software/VSCode-linux-x64/bin
