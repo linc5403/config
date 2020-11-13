@@ -24,12 +24,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell" ## default
+ZSH_THEME="robbyrussell" ## default
 # ZSH_THEME="powerline"
 # ZSH_THEME="ys"
 # ZSH_THEME="random"
-# ZSH_THEME="agnoster" ## last use this 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="agnoster" 
+# ZSH_THEME="powerlevel9k/powerlevel9k" ## last use this 
 # ZSH_THEME="spaceship"
 
 
@@ -150,7 +150,7 @@ export JAVA_11_HOME=~/bin/jdk-11.0.5.jdk/Contents/Home
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 #   
 # #默认JDK 13  
-# export JAVA_HOME=$JAVA_11_HOME
+export JAVA_HOME=$JAVA_11_HOME
 #   
 # #alias命令动态切换JDK版本  
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
@@ -173,4 +173,14 @@ export PATH=$PATH:"~/Google 云端硬盘/lectures/docs/tools"
 
 
 # for java
-export JAVA_HOME=/Users/banyuan/bin/jdk-11.0.7.jdk/Contents/Home
+# export JAVA_HOME=/Users/banyuan/bin/jdk-11.0.7.jdk/Contents/Home
+
+# export PATH=$JAVA_HOME/bin:$PATH
+
+
+# for nodejs
+export PATH=/Users/banyuan/bin/node-v14.15.0-darwin-x64/bin:$PATH
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+    --cache=$HOME/.npm/.cache/cnpm \
+    --disturl=https://npm.taobao.org/dist \
+    --userconfig=$HOME/.cnpmrc"
