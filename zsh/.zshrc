@@ -95,7 +95,7 @@ ZSH_THEME="robbyrussell"
 
 # plugins=(git vi-mode z zsh-completions)
 # plugins=(git z zsh-completions docker docker-compose)
-plugins=(git z zsh-completions mvn docker docker-compose)
+plugins=(git z zsh-completions mvn docker docker-compose virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -162,8 +162,13 @@ source $ZSH/oh-my-zsh.sh
 
 # set -o vi
 
-export JAVA_HOME=~/software/jdk-11.0.6
-export PATH=$PATH:$JAVA_HOME/bin
+# for java
+export JAVA_HOME11=~/software/jdk-11.0.6
+export JAVA_HOME8=/home/linc/software/jdk1.8.0_271
+alias jdk8="export JAVA_HOME=$JAVA_HOME8 && export PATH=$JAVA_HOME8/bin:$PATH"
+alias jdk11="export JAVA_HOME=$JAVA_HOME11 && export PATH=$JAVA_HOME11/bin:$PATH"
+jdk8
+# export PATH=$JAVA_HOME/bin:$PATH
 
 # recover robbyrussell 2020-0911
 # 下面这一行会修改robbyrussell的样式
@@ -179,8 +184,7 @@ export PATH=$PATH:~/docs/tools
 export EDITOR='emacs -nw'
 
 # for idea
-export PATH=$PATH:/home/linc/software/idea-IU-193.6015.39/bin
-
+# export PATH=$PATH:/home/linc/software/idea-IU-193.6015.39/bin
 # pip zsh completion start
 function _pip_completion {
   local words cword
@@ -203,3 +207,17 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 
 #alias for open
 alias open="xdg-open"
+
+
+# rar
+export PATH=$PATH:~/software/rar
+
+# gradle
+export PATH=~/bin/gradle-6.7/bin:$PATH
+
+# pyenv
+PROMPT+='$(virtualenv_prompt_info)'
+
+
+# pycharm
+export PATH=/home/linc/software/pycharm-2020.2.3/bin:$PATH
