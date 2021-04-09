@@ -85,7 +85,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
 """"自动加括号
-Plugin 'jiangmiao/auto-pairs'
+"Plugin 'jiangmiao/auto-pairs'
 
 """"配色方案
 Plugin 'jnurmine/Zenburn'
@@ -351,7 +351,7 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " flake8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:flake8_quickfix_height=10
+let g:flake8_quickfix_height=10
 
 
 """"""""""""""""""""ctrlsf, 文件夹搜索"""""""""""""""""""""
