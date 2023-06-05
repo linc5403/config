@@ -32,7 +32,7 @@ Plugin 'othree/xml.vim'
 Plugin 'powerman/vim-plugin-autosess'
 
 """"for ripgrep
-Plugin 'jremmen/vim-ripgrep'
+"Plugin 'jremmen/vim-ripgrep'
 
 """" 文件跳转
 Plugin 'kien/ctrlp.vim'
@@ -51,7 +51,7 @@ Plugin 'vim-python/python-syntax'
 """" end
 
 """" 缩进指示线
-Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
 
 """" 代码折叠
 "Plugin 'tmhedberg/SimpylFold'
@@ -60,9 +60,9 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'Valloric/YouCompleteMe'
 
 """""nerdtree begin""""
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'jistr/vim-nerdtree-tabs'
 """""nerdtree end  """"
 
 """" git
@@ -148,7 +148,7 @@ filetype plugin indent on    " required
 " autocmd vimenter * NERDTree          "先不打开了，看起来好烦
 "How can I open NERDTree automatically when vim starts up on opening a directory?
 "autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe "'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " 关闭vim时，如果打开的文件除了NERDTree没有其他文件时，它自动关闭，减少多次按:q!
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -167,8 +167,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "     \ }
 
 " 显示行号
-let NERDTreeShowLineNumbers=0
-let NERDTreeAutoCenter=1
+"let NERDTreeShowLineNumbers=0
+"let NERDTreeAutoCenter=1
 
 " 在终端启动vim时，共享NERDTree
 "let g:nerdtree_tabs_open_on_console_startup=1
@@ -416,10 +416,10 @@ let g:ctrlp_extensions = ['funky']
 "Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [ ['brown', 'RoyalBlue3'], ['Darkblue', 'SeaGreen3'], ['darkgray', 'DarkOrchid3'], ['darkgreen', 'firebrick3'],['darkcyan', 'RoyalBlue3'],['darkred', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['brown', 'firebrick3'],['gray', 'RoyalBlue3'],['black',       'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['Darkblue',  'firebrick3'],['darkgreen', 'RoyalBlue3'],['darkcyan', 'SeaGreen3'],['darkred', 'DarkOrchid3'],['red', 'firebrick3']]
 let g:rbpt_max = 16
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 """"""""""""""""""airline
 let g:airline_section_x = airline#section#create_right(['gutentags', 'grepper'])
@@ -570,8 +570,8 @@ autocmd FileType markdown setlocal syntax=off
 
 
 """" for templates
-let g:tmpl_author_email = 'linch1982@gmail.com'
-set shell=bash\ -i
+" let g:tmpl_author_email = 'linch1982@gmail.com'
+" set shell=bash\ -i
 
 filetype on
 
@@ -580,9 +580,9 @@ filetype on
 let g:instant_markdown_port = 8888
 
 """" for chinese input
-let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchNLayout = 'us'
-let g:XkbSwitchILayout = 'us'
-autocmd BufEnter * let b:XkbSwitchILayout = 'us'
+" let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
+" let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchNLayout = 'us'
+" let g:XkbSwitchILayout = 'us'
+" autocmd BufEnter * let b:XkbSwitchILayout = 'us'
 

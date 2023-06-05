@@ -1,128 +1,330 @@
+Host huawei-xinan
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host vpn
+    HostName 192.168.1.136
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host d197
+    HostName 192.168.1.197
+    User         linc
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host d198
+    HostName 192.168.1.198
+    User         linc
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host d199
+    HostName 192.168.1.199
+    User         linc
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host node2
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host master3
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host master2
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host master1
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host node1
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host 192.168.1.17
+
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host 192.168.1.16
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host 192.168.1.15
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host 192.168.1.14
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host 192.168.1.13
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host pre.wisdomopen.com
+    User qizhi
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+
 # work
 Host github.com
     HostName github.com
     ForwardAgent no
     User git
     # socks5端口号
-    ProxyCommand /usr/bin/nc -x 127.0.0.1:1086 %h %p
-    IdentityFile ~/.ssh/id_rsa_work
-    StrictHostKeyChecking no
-    IdentitiesOnly yes
-
-# private
-Host linchuan.github.com
-    HostName github.com
-    ForwardAgent no
-    User git
-    # socks5端口号
-    ProxyCommand /usr/bin/nc -x 127.0.0.1:1086 %h %p
-    IdentityFile  ~/.ssh/id_rsa_macpro
-    StrictHostKeyChecking no
-    IdentitiesOnly yes
-
-# transit
-HOST 121.196.213.142
-    User root
-    AddKeysToAgent yes
+    # ProxyCommand /usr/bin/nc -x 127.0.0.1:1086 %h %p
     IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
+    IdentitiesOnly yes
+
+# svn 192.168.1.101
+Host svn        
+    User         linc
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
     TCPKeepAlive=yes
     ServerAliveInterval 10
     ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
 
-# workstation
-Host 192.168.1.66        
-    User         hunch
-    Port         2234
-    ForwardX11 yes
-    ForwardX11Trusted yes
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
-
-# Azure
-Host         40.73.37.81 40.73.39.124 40.73.36.43 40.73.33.137 40.73.112.177 40.73.103.150 40.73.113.111 40.73.36.22 40.73.38.160 test1 test2 azure-baidu 40.73.6.131 40.73.5.89 test3 40.73.35.171 es_online vtags data_platform 139.217.235.211 timer-task
-    Port         22
-    User hunch
+# raspberry 192.168.3.117
+Host raspberry        
+    HostName 192.168.3.117
+    User         pi
     ForwardX11 yes
     ForwardX11Trusted yes
     TCPKeepAlive=yes
     ServerAliveInterval 10
     ServerAliveCountMax 5
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_Azure
+    IdentityFile ~/.ssh/id_rsa
 
 
-Host         vtags
-    Port         22
-    User hunch
+
+Host 192.168.1.244        
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+
+# lab
+Host lab        
+    User         linc
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host lab30
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host lab40
+    User         root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+
+
+Host online
+    User root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/online-ubuntu.pem
+
+Host dev_online
+    User linc
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+
+Host huawu
+    User root
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host tencent
+    User ubuntu
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/ubuntu
+
+
+Host wisdom-tencent
+    User root
+    TCPKeepAlive=yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host lab_yancheng
+    HostName 192.168.1.250
+    User         linc
     ForwardX11 yes
     ForwardX11Trusted yes
     TCPKeepAlive=yes
     ServerAliveInterval 10
     ServerAliveCountMax 5
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_server
-
-
-# extractor.zenvideo.cn
-Host extractor.zenvideo.cn
-    User root
     IdentityFile ~/.ssh/id_rsa
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
 
-# build
-Host 40.125.172.62
-    User root
-    IdentityFile ~/.ssh/id_rsa
-    AddKeysToAgent yes
-    ForwardAgent yes
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
-
-# daily
-Host 139.219.10.159
-    User hunch
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-
-
-# hongkong
-Host         hongkong
-    User root
-    IdentityFile ~/.ssh/hunch_hongkong.pem
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-    StrictHostKeyChecking no
-
-# baidu yun
-Host baidu-1
-    User root
-    IdentityFile ~/.ssh/id_rsa_baidu
+Host lab_debian_1
+    HostName 192.168.1.92
+    User         linc
     ForwardX11 yes
     ForwardX11Trusted yes
-    ForwardAgent yes
     TCPKeepAlive=yes
     ServerAliveInterval 10
     ServerAliveCountMax 5
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
 
 
-# jp
-Host jp
-    Hostname 52.196.43.150
-    User ec2-user
-    IdentityFile ~/.ssh/id_rsa_jp
-    TCPKeepAlive=yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 5
-    ForwardX11 yes
-    ForwardX11Trusted yes
